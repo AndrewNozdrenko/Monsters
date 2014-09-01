@@ -48,7 +48,6 @@ var catMon = new Monster("catMon", 70),
 	birdMon3 = new Monster("birdMon3", 70);
 
 
-
 catMon.speacName();
 catMon1.speacName();
 
