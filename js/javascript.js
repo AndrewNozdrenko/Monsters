@@ -19,7 +19,7 @@ function Monster(name, life){
 		this.life = this.life - countTaken;
 	}
 
-	this.getAttack = function(obj){
+	this.getAttack = function(){
 		if(name.indexOf("cat") != -1){
 			this.takenCatMonster = catMonster;
 			this.startLife = 50;
@@ -31,6 +31,8 @@ function Monster(name, life){
 			this.life = this.startLife;
 		}
 	}
+
+	this.getAttack();
 }
 
 
@@ -45,16 +47,7 @@ var catMon = new Monster("catMon", 70),
 	birdMon2 = new Monster("birdMon2", 70),
 	birdMon3 = new Monster("birdMon3", 70);
 
-catMon.getAttack();
-catMon1.getAttack();
-catMon2.getAttack();
-catMon3.getAttack();
-catMon4.getAttack();
 
-birdMon.getAttack();
-birdMon1.getAttack();
-birdMon2.getAttack();
-birdMon3.getAttack();
 
 catMon.speacName();
 catMon1.speacName();
