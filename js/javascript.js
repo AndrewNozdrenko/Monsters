@@ -21,12 +21,12 @@ function Monster(name, life){
 
 	this.getAttack = function(){
 		if(name.indexOf("cat") != -1){
-			this.takenCatMonster = catMonster;
+			this.takenGetMonster = catMonster;
 			this.startLife = 50;
 			this.life = this.startLife;
 		}
 		if(name.indexOf("bird") != -1){
-			this.takenCatMonster = birdMonster;
+			this.takenGetMonster = birdMonster;
 			this.startLife = 60;
 			this.life = this.startLife;
 		}
@@ -51,16 +51,16 @@ var catMon = new Monster("catMon", 70),
 catMon.speacName();
 catMon1.speacName();
 
-catMon.takenCatMonster(catMon1);
+catMon.takenGetMonster(catMon1);
 
 console.log(catMon.life);
 console.log(catMon1.life);
 
-birdMon.takenCatMonster(catMon);
+birdMon.takenGetMonster(catMon);
 console.log(catMon.life);
 
 for(var i = 0; i < 7; i++){
-	catMon.takenCatMonster(birdMon2);
+	catMon.takenGetMonster(birdMon2);
 }
 console.log(birdMon2.life);
 console.log(birdMon3.life);
