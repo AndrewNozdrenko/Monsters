@@ -17,7 +17,7 @@ function Monster(name, life){
 			this.startLife = 50;
 			this.life = this.startLife;
 		}
-		if(name.indexOf("bird") != -1){
+		else if(name.indexOf("bird") != -1){
 			this.takenGetMonster = birdMonster;
 			this.startLife = 60;
 			this.life = this.startLife;
