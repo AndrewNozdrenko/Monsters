@@ -11,10 +11,6 @@ function Monster(name, life){
 		this.takenMonster.call(obj, 3);
 	}
 
-	this.takenMonster = function(countTaken){
-		this.life = this.life - countTaken;
-	}
-
 	this.getAttack = function(){
 		if(name.indexOf("cat") != -1){
 			this.takenGetMonster = catMonster;
@@ -34,7 +30,9 @@ function Monster(name, life){
 Monster.prototype.speacName = function(){
 	console.log(this.name);
 }
-
+Monster.prototype.takenMonster = function(countTaken){
+	this.life = this.life - countTaken;
+}
 
 var catMon = new Monster("catMon", 70),
 	catMon1 = new Monster("catMon1", 70),
