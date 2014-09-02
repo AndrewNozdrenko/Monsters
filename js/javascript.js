@@ -11,10 +11,6 @@ function Monster(name, life){
 		this.takenMonster.call(obj, 3);
 	}
 
-	this.speacName = function(){
-		console.log(this.name);
-	}
-
 	this.takenMonster = function(countTaken){
 		this.life = this.life - countTaken;
 	}
@@ -33,6 +29,10 @@ function Monster(name, life){
 	}
 
 	this.getAttack();
+}
+
+Monster.prototype.speacName = function(){
+	console.log(this.name);
 }
 
 
