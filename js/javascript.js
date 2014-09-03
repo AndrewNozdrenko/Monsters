@@ -46,3 +46,4 @@ cat1.scratch(cat2);
 bird2.peck(cat2);
 bird2.peck(cat1);
 cat2.scratch(bird1);
+bird2.speakName();
