@@ -2,63 +2,49 @@ function Monster(name, life){
 	this.name = name;
 	this.startLife = life;
 	this.life = this.startLife;
-
-	function catMonster(obj){
-		this.takenMonster.call(obj, 5);
-	}
-
-	function birdMonster(obj){
-		this.takenMonster.call(obj, 3);
-	}
-
-	this.getAttack = function(){
-		if(name.indexOf("cat") != -1){
-			this.takenGetMonster = catMonster;
-			this.startLife = 50;
-			this.life = this.startLife;
-		}
-		else if(name.indexOf("bird") != -1){
-			this.takenGetMonster = birdMonster;
-			this.startLife = 60;
-			this.life = this.startLife;
-		}
-	}
-
-	this.getAttack();
 }
 
-Monster.prototype.speacName = function(){
+Monster.prototype.speakName = function(){
 	console.log(this.name);
 }
-Monster.prototype.takenMonster = function(countTaken){
-	this.life = this.life - countTaken;
+
+Monster.prototype.toAttack = function(count){
+	this.life -= count;
 }
 
-var catMon = new Monster("catMon", 70),
-	catMon1 = new Monster("catMon1", 70),
-	catMon2 = new Monster("catMon2", 70),
-	catMon3 = new Monster("catMon3", 70),
-	catMon4 = new Monster("catMon4", 70),
 
-	birdMon = new Monster("birdMon", 70),
-	birdMon1 = new Monster("birdMon1", 70),
-	birdMon2 = new Monster("birdMon2", 70),
-	birdMon3 = new Monster("birdMon3", 70);
-
-
-catMon.speacName();
-catMon1.speacName();
-
-catMon.takenGetMonster(catMon1);
-
-console.log(catMon.life);
-console.log(catMon1.life);
-
-birdMon.takenGetMonster(catMon);
-console.log(catMon.life);
-
-for(var i = 0; i < 7; i++){
-	catMon.takenGetMonster(birdMon2);
+function catMonster(name, life){
+		Monster.call(this, name, life);
 }
-console.log(birdMon2.life);
-console.log(birdMon3.life);
+
+catMonster.prototype = Object.create(Monster.prototype);
+
+catMonster.prototype.scratch = function(obj){
+	this.toAttack.call(obj, 5);
+	console.log(this.name + ' attack ' + obj.name + ' currentlife ' + obj.life);
+}
+
+
+
+function birdMonster(name, life){
+		Monster.call(this, name, life);
+}
+
+birdMonster.prototype = Object.create(Monster.prototype);
+
+birdMonster.prototype.peck = function(obj){
+	this.toAttack.call(obj, 3);
+	console.log(this.name + ' attack ' + obj.name + ' currentlife ' + obj.life);
+}
+
+
+
+var cat1 = new catMonster("cat1",50),
+	cat2 = new catMonster("cat2",50),
+	bird1 = new birdMonster("bird1", 60),
+	bird2 = new birdMonster("bird2", 60);
+
+	cat1.scratch(cat2);
+	bird2.peck(cat2);
+	bird2.peck(cat1);
+	cat2.scratch(bird1);
