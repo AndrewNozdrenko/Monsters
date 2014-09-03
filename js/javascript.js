@@ -14,7 +14,7 @@ Monster.prototype.toAttack = function(count){
 
 
 function catMonster(name, life){
-		Monster.call(this, name, life);
+	Monster.call(this, name, life);
 }
 
 catMonster.prototype = Object.create(Monster.prototype);
@@ -25,9 +25,8 @@ catMonster.prototype.scratch = function(obj){
 }
 
 
-
 function birdMonster(name, life){
-		Monster.call(this, name, life);
+	Monster.call(this, name, life);
 }
 
 birdMonster.prototype = Object.create(Monster.prototype);
@@ -38,13 +37,12 @@ birdMonster.prototype.peck = function(obj){
 }
 
 
-
-var cat1 = new catMonster("cat1",50),
-	cat2 = new catMonster("cat2",50),
+var cat1 = new catMonster("cat1", 50),
+	cat2 = new catMonster("cat2", 50),
 	bird1 = new birdMonster("bird1", 60),
 	bird2 = new birdMonster("bird2", 60);
 
-	cat1.scratch(cat2);
-	bird2.peck(cat2);
-	bird2.peck(cat1);
-	cat2.scratch(bird1);
+cat1.scratch(cat2);
+bird2.peck(cat2);
+bird2.peck(cat1);
+cat2.scratch(bird1);
